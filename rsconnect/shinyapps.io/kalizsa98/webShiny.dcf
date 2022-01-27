@@ -1,0 +1,14 @@
+name: webShiny
+title: webShiny
+username:
+account: kalizsa98
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5527221
+bundleId: 5515790
+url: https://kalizsa98.shinyapps.io/webShiny/
+when: 1643313754.0068
+lastSyncTime: 1643313754.0068
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: pro.Rmd|proyec.html|proyec.Rmd|Proyecto.html|Proyecto.pdf|Proyecto.Rmd

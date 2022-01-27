@@ -1,0 +1,7 @@
+"0","ggplot(datos_NoOut, aes(x = edad)) +"
+"0","  geom_histogram(fill=rgb(0.1,1,0.5,0.7),bins =30)+"
+"0","  labs(title = ""Histograma 1"","
+"0","       subtitle = ""Histograma de la variable edad"")"
+"2","Error in ggplot(datos_NoOut, aes(x = edad)) : 
+  object 'datos_NoOut' not found
+"

@@ -1,0 +1,28 @@
+{
+    "id": "6803D346",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1642989617058.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "id": "ec164f478a014dc3afc2a34ddd8e5861",
+        "name": "estados2",
+        "title": "estados2",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 8313484861770130290,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1642989617058,
+    "read_only": false,
+    "read_only_alternatives": []
+}

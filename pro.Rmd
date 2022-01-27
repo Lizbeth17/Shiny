@@ -1,0 +1,54 @@
+---
+title: "Distribuación de la poblacion en México"
+author: "Karen Lizbeth Sanchez Florencio"
+date: "11/1/2022"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introducción 
+
+Este proyecto surge de la necesidad de analizar como se distribuye la población en el país con especial enfasis en el estado de Guerrero desde una perspectiva diferente y poco vista (el análisis de datos funcionales).
+
+Los datos aquí usados fueron obtenidos de la páfina oficial del INEGI https://www.inegi.org.mx/programas/ccpv/2020/default.html 
+
+```{r eruptions, echo=FALSE}
+library(readxl)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(expss)
+library(DT)
+library(summarytools)
+estados = read.csv("conjunto_de_datos/conjunto_de_datos_iter_00CSV20.csv")
+municipios = read.csv("conjunto_de_datos/conjunto_de_datos_iter_12CSV20.csv")
+estados <- estados [estados$MUN == 0, ]
+estados <- estados [estados$LOC == 0, ]
+municipios <-municipios [municipios$LOC == 0, ]
+municipios<- municipios [!(municipios$MUN == 0),]
+
+inputPanel(
+  selectInput("n_breaks", label = "Number of bins:",
+              choices = c(10, 20, 35, 50), selected = 20),
+  
+  sliderInput("bw_adjust", label = "Bandwidth adjustment:",
+              min = 0.2, max = 2, value = 1, step = 0.2)
+)
+
+renderPlot({
+  hist(faithful$eruptions, probability = TRUE, breaks = as.numeric(input$n_breaks),
+       xlab = "Duration (minutes)", main = "Geyser eruption duration")
+  
+  dens <- density(faithful$eruptions, adjust = input$bw_adjust)
+  lines(dens, col = "blue")
+})
+```
+
+
+
+
+

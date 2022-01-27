@@ -1,0 +1,8 @@
+"0","leaflet(estados2)%>% addTiles()%>% addPolygons(stroke = FALSE,smoothFactor = 0.8,fillOpacity = 0.5,
+                                             fillColor   = ~pal(estados$POBTOT),
+                                           highlightOptions=highlightOptions(label = sprintf(""%s<br/>Población Total: %s<br/>Población femenina: %s<br/>población masculina: %s"",datos$nombre_entidad,estados$POBTOT,estados$POBFEM, estados$POBMAS) %>% lapply(htmltools::HTML),))%>%
+  addMarkers(lng=as.numeric(datos$lng),lat=as.numeric(datos$lat), )
+"
+"2","Error in highlightOptions(label = sprintf(""%s<br/>Población Total: %s<br/>Población femenina: %s<br/>población masculina: %s"",  : 
+  unused argument (label = sprintf(""%s<br/>Población Total: %s<br/>Población femenina: %s<br/>población masculina: %s"", datos$nombre_entidad, estados$POBTOT, estados$POBFEM, estados$POBMAS) %>% lapply(htmltools::HTML))
+"

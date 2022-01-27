@@ -1,0 +1,28 @@
+{
+    "id": "CE0483B3",
+    "path": "~/Proyectos en R/webShiny/proyec.Rmd",
+    "project_path": "proyec.Rmd",
+    "type": "r_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1642880296684.0,
+    "source_on_save": true,
+    "relative_order": 7,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "92,3",
+        "scrollLine": "0",
+        "last_setup_crc32": ""
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1643304007,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1643311446117,
+    "read_only": false,
+    "read_only_alternatives": []
+}

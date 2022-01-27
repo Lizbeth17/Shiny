@@ -1,0 +1,8 @@
+"0","leaflet(municipios2)%>% addTiles()%>% addPolygons(color = ""#444444"",weight = 1,
+                                           opacity = 1.0,fillOpacity = 0.5,
+                                           highlightOptions=highlightOptions(color = ""white"",weight = 2,bringToFront = TRUE))%>%
+  addMarkers(lng=as.numeric(datos2$lng),lat=as.numeric(datos2$lat), label = sprintf(""%s<br/>Población Total: %s<br/>Población femenina: %s<br/>población masculina: %s"",datos2$nombre_municipio,municipios$POBTOT,municipios$POBFEM, municipios$POBMAS) %>% lapply(htmltools::HTML),)
+"
+"2","Error in leaflet(municipios2) %>% addTiles() %>% addPolygons(color = ""#444444"",  : 
+  could not find function ""%>%""
+"

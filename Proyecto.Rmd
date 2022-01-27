@@ -1,0 +1,69 @@
+---
+title: "Distribuación de la poblacion en México"
+author: "Karen Lizbeth Sanchez Florencio"
+date: "11/1/2022"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introducción 
+
+Este proyecto surge de la necesidad de analizar como se distribuye la población en el país con especial enfasis en el estado de Guerrero desde una perspectiva diferente y poco vista (el análisis de datos funcionales).
+
+Los datos aquí usados fueron obtenidos de la páfina oficial del INEGI https://www.inegi.org.mx/programas/ccpv/2020/default.html 
+
+```{r,include=FALSE,warning=FALSE}
+library(readxl)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(expss)
+library(DT)
+library(summarytools)
+estados = read.csv("conjunto_de_datos/conjunto_de_datos_iter_00CSV20.csv")
+municipios = read.csv("conjunto_de_datos/conjunto_de_datos_iter_12CSV20.csv")
+estados <- estados [estados$MUN == 0, ]
+estados <- estados [estados$LOC == 0, ]
+estados<- estados [!(estados$ï..ENTIDAD == 0), ]
+municipios <-municipios [municipios$LOC == 0, ]
+municipios<- municipios [!(municipios$MUN == 0),]
+```
+ 
+Al ya tener nuestras bases de datos limpias podemos realizar los procedimientos que deseemos, como por ejemplo los siguientes mapas que cuentan con la informacion acerca de la población,
+
+```{r, echo=FALSE,fig.align='center',fig.height=5,fig.width=7,warning=FALSE}
+library(rgdal)
+library(leaflet)
+library(sp)
+library(sf)
+library(jsonlite)
+estados2<-readOGR("México_Estados.shp")
+municipios2<-readOGR("gro_municipio.shp")
+datos<-fromJSON("inegi-lista-estados-master/states.json")
+
+leaflet(estados2)%>% addTiles()%>% addPolygons(color = "#444444",weight = 1,
+                                           opacity = 1.0,fillOpacity = 0.5,
+                                           highlightOptions=highlightOptions(color = "white",weight = 2,bringToFront = TRUE))%>%
+  addMarkers(lng=as.numeric(datos$lng),lat=as.numeric(datos$lat), label = sprintf("%s<br/>Población Total: %s<br/>Población femenina: %s<br/>población masculina: %s",datos$nombre_entidad,estados$POBTOT,estados$POBFEM, estados$POBMAS) %>% lapply(htmltools::HTML),)
+
+```
+A continuacion se pueden apreciar distintos histogramas con respecto a las entidades.
+```{r, echo=FALSE,fig.align='center',fig.height=5,fig.width=7,warning=FALSE}
+
+```
+ Y ahora se presenta un mapa del estado respecto a sus municipios
+```{r,echo=FALSE,fig.align='center',fig.height=5,fig.width=7,warning=FALSE}
+datos2<-fromJSON("inegi-lista-estados-master/cities/12.json")
+leaflet(municipios2)%>% addTiles()%>% addPolygons(color = "#444444",weight = 1,
+                                           opacity = 1.0,fillOpacity = 0.5,
+                                           highlightOptions=highlightOptions(color = "white",weight = 2,bringToFront = TRUE))%>%
+  addMarkers(lng=as.numeric(datos2$lng),lat=as.numeric(datos2$lat), label = sprintf("%s<br/>Población Total: %s<br/>Población femenina: %s<br/>población masculina: %s",datos2$nombre_municipio,municipios$POBTOT,municipios$POBFEM, municipios$POBMAS) %>% lapply(htmltools::HTML),)
+
+```
+ 
+ 

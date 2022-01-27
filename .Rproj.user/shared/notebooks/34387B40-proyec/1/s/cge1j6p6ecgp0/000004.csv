@@ -1,0 +1,53 @@
+"0","library(readxl)"
+"0","library(tidyverse)"
+"0","library(dplyr)"
+"0","library(ggplot2)"
+"0","library(expss)"
+"2","
+Attaching package: ‘expss’
+
+"
+"2","The following objects are masked from ‘package:stringr’:
+
+    fixed, regex
+
+"
+"2","The following objects are masked from ‘package:dplyr’:
+
+    between, compute, contains, first, last, na_if, recode, vars
+
+"
+"2","The following objects are masked from ‘package:purrr’:
+
+    keep, modify, modify_if, transpose, when
+
+"
+"2","The following objects are masked from ‘package:tidyr’:
+
+    contains, nest
+
+"
+"2","The following object is masked from ‘package:ggplot2’:
+
+    vars
+
+"
+"0","library(DT)"
+"0","library(summarytools)"
+"2","
+Attaching package: ‘summarytools’
+
+"
+"2","The following object is masked from ‘package:tibble’:
+
+    view
+
+"
+"0","estados = read.csv(""conjunto_de_datos/conjunto_de_datos_iter_00CSV20.csv"")"
+"0","municipios = estados[estados$ï..ENTIDAD== 12,]"
+"2","Error in gregexpr(calltext, singleline, fixed = TRUE) : 
+  regular expression is invalid UTF-8
+"
+"2","Error in xx[[sxx[j]]] : 
+  INTEGER() can only be applied to a 'integer', not a 'closure'
+"
